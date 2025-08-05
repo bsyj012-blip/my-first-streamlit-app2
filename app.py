@@ -6,7 +6,7 @@ from openai import OpenAI
 
 # Upstage Solar Pro2 API 키와 엔드포인트 설정
 client = OpenAI(
-    api_key= st.secrets['OPENAI_API_KEY']
+    api_key= st.secrets['OPENAI_API_KEY'],
     base_url="https://api.upstage.ai/v1"
 )
 
@@ -58,3 +58,4 @@ if prompt := st.chat_input("마음 속 이야기를 자유롭게 입력해 주�
                     response_text += chunk.choices[0].delta.content
                     response_container.markdown(response_text)
             st.session_state.messages.append({"role": "assistant", "content": response_text})
+
