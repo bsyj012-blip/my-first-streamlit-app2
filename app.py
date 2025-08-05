@@ -29,7 +29,7 @@ if "messages" not in st.session_state:
 # 이전 대화 출력
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])d
+        st.markdown(message["content"])
 
 # 사용자 입력 받기
 if prompt := st.chat_input("마음 속 이야기를 자유롭게 입력해 주세요."):
@@ -58,4 +58,5 @@ if prompt := st.chat_input("마음 속 이야기를 자유롭게 입력해 주�
                     response_text += chunk.choices[0].delta.content
                     response_container.markdown(response_text)
             st.session_state.messages.append({"role": "assistant", "content": response_text})
+
 
